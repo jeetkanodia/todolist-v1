@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To DO List</title>
-</head>
-<body>
-    <h1><%=  kindOfDay %></h1>
-    <form action="/" method="post">
-        <label for="newItem">New Task:</label>
-        <input type="text" id="newItem" name="newItem"> 
-        <button type="submit">Add Task</button>
-    </form>
-    <ul>
-        <% for(item in newListItems){ %>
-            <li> <%= newListItems[item]  %> </li>
-        <% } %>
-    </ul>
-</body>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="box" id="heading">
+      <h1><%= kindOfDay %></h1>
+    </div>
+
+    <div class="box">
+      <% for(item in newListItems){ %>
+      <div class="item">
+        <input type="checkbox">
+        <p><%= newListItems[item] %></p>
+      </div>
+      <% } %>
+
+      <form action="/" class="item" method="post">
+        <input autocomplete="off" type="text" placeholder="New Item:" name="newItem" />
+        <button type="submit" name="button">+</button>
+      </form>
+    </div>
+
+   
+
+  </body>
 </html>
